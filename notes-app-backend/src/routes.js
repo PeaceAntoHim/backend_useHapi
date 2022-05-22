@@ -1,9 +1,21 @@
+const {addNotHandler, getAllNotesHandler, getNoteByIdHandler } = require("./handler");
+
 const routes = [
    {
       method: 'POST',
       path: '/notes',
-      handler: () => {}
+      handler: addNotHandler,
+   },
+   {
+      method: 'GET',
+      path: '/notes',
+      handler: getAllNotesHandler,
+   },
+   {
+      method: 'GET',
+      path: '/notes/{id}',
+      handler: getNoteByIdHandler,
    },
 ];
 
-export default routes;
+module.exports = routes;
