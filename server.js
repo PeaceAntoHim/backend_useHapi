@@ -1,15 +1,14 @@
-'use-strict';
-
-import { server as _server } from '@hapi/hapi';
-import { route as _route } from './route';
-
+const Hapi = require('@hapi/hapi');
+const routes = require('./routes');
+ 
+ 
 const init = async () => {
-   const server = _server({
+   const server = Hapi.server({
       port: 5000,
       host: 'localhost',
    });
 
-   server.route(_route);
+   server.route(routes);
 
    await server.start();
    console.log(`Server berjalan pada ${server.info.uri}`);
